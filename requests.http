@@ -1,0 +1,21 @@
+
+### Create new link
+POST http://localhost:3333/api/links
+Content-Type: application/json
+
+{
+  "code": "google",
+  "url": "https://google.com.br"
+}
+
+
+### List all links
+GET http://localhost:3333/api/links
+
+
+### Show metrics links
+GET http://localhost:3333/api/metrics
+
+
+### Use link
+GET http://localhost:3333/google
