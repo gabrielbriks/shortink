@@ -20,15 +20,12 @@ Um encurtador de URLs simples e performático, desenvolvido com **Node.js, Fasti
 - Redis
 - Docker & Docker Compose
 
----
 
 ## 📦 Funcionalidades 
 
 - Encurtar URLs longas em links curtos.
 - Redirecionar URLs curtas para o destino original.
 - Estatísticas de cliques (via cache/Redis).
-
----
 
 
 ## Como Utilizar
