@@ -8,53 +8,56 @@
 
 </div>
 
-Shortink é um backend simples de encurtador de URLs que utiliza tecnologias modernas e eficientes para oferecer um serviço rápido e confiável.
+Um encurtador de URLs simples e performático, desenvolvido com **Node.js, Fastify e TypeScript**, com suporte a **Docker** e **PostgreSQL**. 
 
 ## Tecnologias Utilizadas
 
-- **Fastify**: Framework web rápido e eficiente para Node.js
-- **Typescript**: Superset de JavaScript que adiciona tipagem estática e outros recursos
-- **Docker-compose**: Ferramenta para definir e executar aplicativos Docker de vários contêineres
-- **PostgreSQL**: Banco de dados relacional usado para armazenar os dados dos links gerados
-  - Para construção de queries SQL, esta lib utiliza o [postgres-js](https://github.com/porsager/postgres)
-- **Redis**: Banco de dados em memória utilizado para armazenar dados de analytics dos links
-- **Zod**: Biblioteca para validação de dados em TypeScript
-- **TSX**: Transpiler para arquivos TypeScript
+- Node.js
+- Fastify
+- TypeScript
+- Zod (valid1ação de dados)
+- PostgreSQL
+- Redis
+- Docker & Docker Compose
+
+---
+
+## 📦 Funcionalidades 
+
+- Encurtar URLs longas em links curtos.
+- Redirecionar URLs curtas para o destino original.
+- Estatísticas de cliques (via cache/Redis).
+
+---
+
 
 ## Como Utilizar
+
+### Com Node.js localmente
 
 1. Clone este repositório:
 
 ```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git
+cd shortink
+npm install npm run dev
 ```
 
-2. Instale todas as dependencias
+## Estrutura do projeto
 
-```bash
-npm install
-```
+src/
+ ├── routes/       # Rotas da aplicação
+ ├── services/     # Regras de negócio
+ ├── database/     # Configuração de banco
+ ├── utils/        # Helpers e middlewares
+ 
+## ✅ O que aprendi
+- Uso do Fastify para alta performance.
+- Validação robusta com Zod.
+- Integração com PostgreSQL e Redis.
+- Organização de APIs escaláveis com TypeScript.
 
-3. Execute o servidor de desenvolvimento:
+### Dicas relevantes 
 
-```bash
-npm run dev
-```
-
-Acesse o servidor em http://localhost:3000
-
-## Novidades aprendidas
-
-- Dentro do repositorio do [tsconfig/base](https://github.com/tsconfig/bases?tab=readme-ov-file), podemos visualizar a configuração base para o nosso tsconfig baseado na versão do node que estamos trabalahando. Dessa forma, só precisamos copiar e colar a configuração base em nosso tsconfig
-
+- Em [tsconfig/base](https://github.com/tsconfig/bases?tab=readme-ov-file), podemos visualizar a configuração base para o nosso tsconfig baseado na versão do node que estamos trabalahando. Dessa forma, só precisamos copiar e colar a configuração base em nosso tsconfig
 - Extensão para dicionar sintax highlight na escrita dos comando sql : [Comment tagged templates](https://marketplace.visualstudio.com/items?itemName=bierner.comment-tagged-templates)
-
-  - Para utilizarmos, basta adicionarmos um pequeno comentário anstes dos acentos de crase, como no exemplo abaixo:
-
-  ```typescript
-  async function setup() {
-    await sql/*sql*/ `CREATE TABLE IF NOT EXISTS my_table`;
-  }
-  ```
-
-  Dessa forma teremos a ajuda do editor para escrevermos nossos sql dentro do typescript, de forma simples.
